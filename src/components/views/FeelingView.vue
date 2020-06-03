@@ -44,5 +44,6 @@ export default {
 
 #error {
   color: #9E2B25;
+  padding: 5px;
 }
 </style>

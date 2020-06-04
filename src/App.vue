@@ -41,10 +41,9 @@ export default {
       this.solutionFromFeeling();
     },
     solutionFromFeeling() {
-      const autocorrectedFeeling = this.feeling.toLowerCase(); // need to actually autocorrect here
       axios.get(getUrl).then(response => {
         const value = _.toArray(response.data).filter(
-          val => val.feeling.toLowerCase() === autocorrectedFeeling
+          val => val.feeling.toLowerCase() === this.feeling.toLowerCase()
         );
         if (value.length > 0) {
           this.solution = value[0];

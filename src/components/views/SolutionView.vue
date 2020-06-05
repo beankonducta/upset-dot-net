@@ -1,7 +1,7 @@
 <template>
   <div id="solution-view">
     <h1 id="header" v-if="solution.feeling">
-      Solution to feeling {{ solution.feeling }}:
+      Some steps to take charge over {{ solution.feeling }}:
     </h1>
     <div id="list">
       <p>{{ solution.message }}</p>

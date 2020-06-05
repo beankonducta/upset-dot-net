@@ -1,6 +1,7 @@
 {
     "fear": {
       "feeling": "fear",
+      "options": "fear, fearful, scared, intimidated",
       "message": "Feeling this way is ok!",
       "bodyLanguage": "Head and eyes up, shoulders back but relaxed. Assertive.",
       "oppositeAction": "Do something you know will give you a sense of control & mastery.",
@@ -8,6 +9,7 @@
     },
     "anger": {
       "feeling": "anger",
+      "options": "anger, angry, mad, pissed off, pissed",
       "message": "Feeling this way is ok!",
       "bodyLanguage": "Unclench hands. Relax chest and stomach. Unclench teeth. Relax face, half smile.",
       "oppositeAction": "Take a time out. Be kind. Be understanding.",

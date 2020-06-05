@@ -1,23 +1,18 @@
 <template>
   <div id="app">
-    <FeelingView
-      v-on:feeling-emit="changeView($event)"
-      v-if="view == 0"
-      v-bind:error="error"
-    />
-    <SolutionView
-      v-on:back-emit="changeView()"
-      v-if="view == 1"
-      v-bind:solution="solution"
-    />
+    <button id="about" v-on:click.self="changeView('about')">{{ aboutButtonText() }}</button>
+    <FeelingView v-on:feeling-emit="changeView($event)" v-if="view == 0" v-bind:error="error" />
+    <SolutionView v-on:back-emit="changeView()" v-if="view == 1" v-bind:solution="solution" />
+    <AboutView v-if="view == 2" />
   </div>
 </template>
 
 <script>
 import FeelingView from "./components/views/FeelingView.vue";
 import SolutionView from "./components/views/SolutionView.vue";
+import AboutView from "./components/views/AboutView.vue";
 
-const getUrl = "https://api.jsonbin.io/b/5ed7ec1c79382f568bd28799/4";
+const getUrl = "https://api.jsonbin.io/b/5ed996a62f5fd957fda40f53";
 const axios = require("axios").default;
 const _ = require("lodash");
 
@@ -28,10 +23,17 @@ export default {
   name: "App",
   components: {
     FeelingView,
-    SolutionView
+    SolutionView,
+    AboutView
   },
   methods: {
     changeView(event) {
+      // badly needs refactor lol
+      if(this.view !== 2) this.lastView = this.view;
+      if (event === "about") {
+        this.view = this.view === 2 ? this.lastView : 2;
+        return;
+      }
       if (!event) {
         this.view = 0;
         return;
@@ -40,21 +42,35 @@ export default {
       this.error = null;
       this.solutionFromFeeling();
     },
+    aboutButtonText() {
+      return this.view === 2 ? "Back" : "About";
+    },
     solutionFromFeeling() {
-      axios.get(getUrl).then(response => {
-        const value = _.toArray(response.data).filter(
-          val => val.feeling.toLowerCase() === this.feeling.toLowerCase()
-        );
-        if (value.length > 0) {
-          this.solution = value[0];
-          this.view = 1;
-        } else this.error = "No solution found for that feeling :(";
-      });
+      axios
+        .get(getUrl)
+        .then(response => {
+          const value = _.toArray(response.data).filter(val => {
+            if (!val.options)
+              return val.feeling.toLowerCase() === this.feeling.toLowerCase();
+            for (let option of val.options.split(', ')) {
+
+              if (this.feeling.toLowerCase().includes(option.toLowerCase())) return true;
+            }
+          });
+          if (value.length > 0) {
+            this.solution = value[0];
+            this.view = 1;
+          } else this.error = "No solution found for that feeling :(";
+        })
+        .catch(() => {
+          this.error = "Unable to connect to API :(";
+        });
     }
   },
   data() {
     return {
       view: 0,
+      lastView: 0,
       feeling: "feeling",
       solution: {},
       error: ""
@@ -73,11 +89,39 @@ export default {
   margin-top: 60px;
 }
 
+#about {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  margin: 20px;
+  font-size: 20px;
+  text-align: center;
+  border-width: 0px;
+  color: #513551;
+  background: white;
+}
+
+#about:hover {
+  cursor: pointer;
+  background: white;
+  color: #513551;
+}
+
+#about:focus {
+  outline: none;
+}
+
 p {
   color: #51355a;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: #51355a;
 }
 
@@ -96,7 +140,7 @@ button {
 
 button:hover {
   cursor: pointer;
-  background: #9E2B25;
+  background: #9e2b25;
   color: white;
 }
 

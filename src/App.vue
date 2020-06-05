@@ -1,8 +1,19 @@
 <template>
   <div id="app">
-    <button id="about" v-on:click.self="changeView('about')">{{ aboutButtonText() }}</button>
-    <FeelingView v-on:feeling-emit="changeView($event)" v-if="view == 0" v-bind:error="error" />
-    <SolutionView v-on:back-emit="changeView()" v-if="view == 1" v-bind:solution="solution" />
+    <button id="about" v-on:click.self="changeView('about')">
+      {{ aboutButtonText() }}
+    </button>
+    <FeelingView
+      v-on:feeling-emit="changeView($event)"
+      v-if="view == 0"
+      v-bind:error="error"
+      v-bind:loading="loading"
+    />
+    <SolutionView
+      v-on:back-emit="changeView()"
+      v-if="view == 1"
+      v-bind:solution="solution"
+    />
     <AboutView v-if="view == 2" />
   </div>
 </template>
@@ -29,7 +40,7 @@ export default {
   methods: {
     changeView(event) {
       // badly needs refactor lol
-      if(this.view !== 2) this.lastView = this.view;
+      if (this.view !== 2) this.lastView = this.view;
       if (event === "about") {
         this.view = this.view === 2 ? this.lastView : 2;
         return;
@@ -46,15 +57,21 @@ export default {
       return this.view === 2 ? "Back" : "About";
     },
     solutionFromFeeling() {
+      this.$ga.event('user input', 'solution search', 'feeling', this.feeling);
+      this.loading = true;
       axios
         .get(getUrl)
         .then(response => {
           const value = _.toArray(response.data).filter(val => {
-            if (!val.options)
+            if (!val.options) {
+              this.loading = false;
               return val.feeling.toLowerCase() === this.feeling.toLowerCase();
-            for (let option of val.options.split(', ')) {
-
-              if (this.feeling.toLowerCase().includes(option.toLowerCase())) return true;
+            }
+            for (let option of val.options.split(", ")) {
+              if (this.feeling.toLowerCase().includes(option.toLowerCase())) {
+                this.loading = false;
+                return true;
+              }
             }
           });
           if (value.length > 0) {
@@ -73,15 +90,18 @@ export default {
       lastView: 0,
       feeling: "feeling",
       solution: {},
-      error: ""
+      error: "",
+      loading: false
     };
   }
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Arvo&display=swap");
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Arvo", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -105,7 +125,7 @@ export default {
 #about:hover {
   cursor: pointer;
   background: white;
-  color: #513551;
+  color: #f5164e;
 }
 
 #about:focus {
@@ -125,6 +145,10 @@ h6 {
   color: #51355a;
 }
 
+* {
+  font-family: "Arvo", serif;
+}
+
 button {
   padding: 10px;
   margin: 20px;
@@ -140,8 +164,33 @@ button {
 
 button:hover {
   cursor: pointer;
-  background: #9e2b25;
+  background: #f5164e;
   color: white;
+}
+
+button:hover:disabled {
+  cursor: default;
+  border-color: #51355a;
+  color: #513551;
+  background: white;
+}
+
+button:active {
+  background: #513551;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+.loading {
+  -webkit-animation: blink 0.5s infinite;
+  animation: blink 0.5s infinite;
 }
 
 input {
@@ -158,5 +207,28 @@ input {
 
 input:focus {
   outline: none;
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>

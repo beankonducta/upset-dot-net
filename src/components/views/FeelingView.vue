@@ -2,8 +2,10 @@
   <div id="feeling-view">
     <h1 id="header">I'm Feeling:</h1>
     <input v-model="feeling" />
-    <br>
-    <button v-on:click="$emit('feeling-emit', feeling)">Submit</button>
+    <br />
+    <button v-on:click="submit()" :disabled="!feeling || feeling.length === ''" v-bind:class="loading ? 'loading' : ''">
+      Submit
+    </button>
     <p id="error" v-if="error">{{ error }}</p>
   </div>
 </template>
@@ -12,7 +14,8 @@
 export default {
   name: "FeelingView",
   props: {
-    error: String
+    error: String,
+    loading: Boolean
   },
   methods: {
     randomFeeling() {
@@ -23,6 +26,9 @@ export default {
       if (ran === 4) return "shame";
       if (ran === 5) return "guilt";
       if (ran === 6) return "jealous";
+    },
+    submit() {
+      this.$emit("feeling-emit", this.feeling);
     }
   },
   data() {
@@ -43,8 +49,7 @@ export default {
 }
 
 #error {
-  color: #9E2B25;
+  color: #f5164e;
   padding: 5px;
-  
 }
 </style>

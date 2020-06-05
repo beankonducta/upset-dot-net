@@ -38,7 +38,7 @@ export default {
 
 #header {
   padding: 10px;
-  border-bottom: 4px solid #9e2b25;
+  border-bottom: 4px solid #f5164e;
 }
 
 #list {

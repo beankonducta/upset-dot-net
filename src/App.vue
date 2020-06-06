@@ -54,6 +54,7 @@ export default {
       return this.view === 2 ? "Back" : "About";
     },
     solutionFromFeeling() {
+      // this isn't submitting an event
       this.$ga.event({
         eventCategory: "User Input",
         eventAction: "Feeling Input",

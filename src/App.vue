@@ -1,19 +1,13 @@
 <template>
   <div id="app">
-    <button id="about" v-on:click.self="changeView('about')">
-      {{ aboutButtonText() }}
-    </button>
+    <button id="about" v-on:click.self="changeView('about')">{{ aboutButtonText() }}</button>
     <FeelingView
       v-on:feeling-emit="changeView($event)"
       v-if="view == 0"
       v-bind:error="error"
       v-bind:loading="loading"
     />
-    <SolutionView
-      v-on:back-emit="changeView()"
-      v-if="view == 1"
-      v-bind:solution="solution"
-    />
+    <SolutionView v-on:back-emit="changeView()" v-if="view == 1" v-bind:solution="solution" />
     <AboutView v-if="view == 2" />
   </div>
 </template>
@@ -32,6 +26,9 @@ const _ = require("lodash");
 
 export default {
   name: "App",
+  mounted() {
+    this.$ga.page("/");
+  },
   components: {
     FeelingView,
     SolutionView,
@@ -57,7 +54,13 @@ export default {
       return this.view === 2 ? "Back" : "About";
     },
     solutionFromFeeling() {
-      this.$ga.event('user input', 'solution search', 'feeling', this.feeling);
+      this.$ga.event({
+        eventCategory: "User Input",
+        eventAction: "Feeling Input",
+        eventLabel: "Solution",
+        eventValue: this.feeling
+      });
+      console.log('event logged');
       this.loading = true;
       axios
         .get(getUrl)

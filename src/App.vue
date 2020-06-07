@@ -61,7 +61,6 @@ export default {
         eventLabel: "Solution",
         eventValue: this.feeling
       });
-      console.log('event logged');
       this.loading = true;
       axios
         .get(getUrl)

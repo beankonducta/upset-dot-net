@@ -1,13 +1,13 @@
 <template>
   <div id="solution-view">
     <h1 id="header" v-if="solution.feeling">
-      Some steps to take charge over {{ solution.feeling }}:
+      Feeling {{ solution.feeling }}, eh?:
     </h1>
     <div id="list">
       <p>{{ solution.message }}</p>
       <p class="list-item"><b>Body Language</b> - {{ solution.bodyLanguage }}</p>
-      <p class="list-item"><b>Opposite Action</b> - {{ solution.oppositeAction }}</p>
-      <p class="list-item"><b>Breathing</b> - {{ solution.breathing }}</p>
+      <p class="list-item"><b>Opposite Emotional Action</b> - {{ solution.oppositeAction }}</p>
+      <p class="list-item"><b>Physical Action</b> - {{ solution.breathing }}</p>
     </div>
     <button v-on:click="$emit('back-emit')">Back</button>
   </div>

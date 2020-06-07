@@ -17,7 +17,7 @@ import FeelingView from "./components/views/FeelingView.vue";
 import SolutionView from "./components/views/SolutionView.vue";
 import AboutView from "./components/views/AboutView.vue";
 
-const getUrl = "https://api.jsonbin.io/b/5ed996a62f5fd957fda40f53";
+const getUrl = "https://api.jsonbin.io/b/5ed7ec1c79382f568bd28799/5";
 const axios = require("axios").default;
 const _ = require("lodash");
 

@@ -2,12 +2,12 @@
   <div id="about-view">
     <h1>What <i>is</i> this tool?</h1>
     <p>
-      This site was created to be a simple, easy to use resource in a moment of emotional turmoil. It's based on DBT skills for emotion regulation.
+      This site was created to be a simple, easy to use resource in a moment of emotional turmoil. It's loosely based on DBT skills for emotion regulation.
       It's meant to be used
       <i>in the moment</i>, as a way to help change your emotional response to a given situation. Each 'solution'
       gives you a body language adjustment, a breathing exercise and an opposite emotion / reaction tip. It should only
       take a couple of minutes to follow the provided 'solution' and take back control of your emotional state. The more you practice
-      these strategies, the easier and more second nature it will become to keep control of your emotions in tough situations
+      these strategies, the easier and more second nature it will become to keep control of your emotions in tough situations.
     </p>
      <h1>What <i>isn't</i> this tool?</h1>
     <p>

@@ -4,52 +4,52 @@
         "options": "fear, fearful, scared, intimidated",
         "message": "Feeling this way is ok!",
         "bodyLanguage": "Head and eyes up, shoulders back but relaxed. Assertive.",
-        "oppositeAction": "Do something you know will give you a sense of control & mastery.",
+        "oppositeAction": "Do something you know will give you a sense of control & mastery. If you're able to step back for a few moments, do so and remember a situation where you truly felt in control.",
         "breathing": "Slow, paced breathing."
     },
     "anger": {
         "feeling": "Angry",
-        "options": "anger, angry, mad, pissed off, pissed",
+        "options": "anger, angry, mad, pissed off, pissed, livid",
         "message": "Feeling this way is ok!",
         "bodyLanguage": "Unclench hands. Relax chest and stomach. Unclench teeth. Relax face, half smile.",
-        "oppositeAction": "Take a time out. Be kind. Be understanding.",
-        "breathing": "Breath in deeply and out slowly. Or go for a sprint if you can."
+        "oppositeAction": "Take a time out. Be kind. Be understanding. It's OK to avoid the person or situation that makes you made (if appropriate).",
+        "breathing": "If you can go for a sprint or similar physical exertion, do it! If you can't, some slow paced breathing can help."
     },
     "envy": {
         "feeling": "Envious",
-        "options": "",
+        "options": "envy, envious",
         "message": "Feeling this way is ok!",
-        "bodyLanguage": "Unclench hands. Relax chest and stomach. Unclench teeth. Relax face, half smile.",
+        "bodyLanguage": "Bright posture. Open your shoulders and relax your arms.",
         "oppositeAction": "Think of 3 blessings / things you are thankful for.",
-        "breathing": "Slow, paced breathing."
+        "breathing": ""
     },
     "jealous": {
         "feeling": "Jealous",
-        "options": "",
+        "options": "jealous, jealousy",
         "message": "Feeling this way is ok!",
-        "bodyLanguage": "Unclench hands. Relax chest and stomach. Unclench teeth. Relax face, half smile.",
-        "oppositeAction": "Let go of controlling others actions. Share the things and people you have in your life.",
-        "breathing": "Slow, paced breathing."
+        "bodyLanguage": "Bright posture. Open your shoulders and relax your arms.",
+        "oppositeAction": "Let go of controlling others actions. Share the things and people you have in your life. Appreciate the good things that you do have.",
+        "breathing": "Stepping back for a few moments and breathing slowly while clearing your head can help."
     },
     "sad": {
         "feeling": "Sad",
-        "options": "",
+        "options": "sad, sadness, like crying, upset, depressed",
         "message": "Feeling this way is ok!",
         "bodyLanguage": "Adopt a bright posture. Head up, eyes open, shoulders back.",
-        "oppositeAction": "Don't avoid. Be mindful of sadness but also increase pleasant events.",
-        "breathing": "Normal breathing."
+        "oppositeAction": "Don't avoid. Be mindful of sadness but also think of pleasant events. Think of a few things you're super thankful to have in your life (people, places, things, anything really).",
+        "breathing": "'Breathe in' the pleasant events and 'breathe out' the sadness. Don't try to get rid of it, rather allow it to coexist with whatever pleasant thoughts you have."
     },
     "shame": {
         "feeling": "Shameful",
-        "options": "",
+        "options": "shame, shameful",
         "message": "Feeling this way is ok!",
         "bodyLanguage": "Look innocent and proud. Lift your head. Proud chest. Maintain eye contact. Keep your voice tone steady and clear.",
-        "oppositeAction": "Don't appologize. Take in all information. Repeat the behavior to build tolerance.",
-        "breathing": "Normal breathing."
+        "oppositeAction": "Don't appologize. Think of a few things you feel proud about.",
+        "breathing": "If you have some time to explore the shame with someone you trust you can, but in the moment the best thing to do is adopt a proud posture and think of moments of pride."
     },
     "guilt": {
         "feeling": "Guilty",
-        "options": "",
+        "options": "guilt, guilty",
         "message": "Feeling this way is ok!",
         "bodyLanguage": "Look innocent and proud. Lift your head. Proud chest. Maintain eye contact. Keep your voice tone steady and clear.",
         "oppositeAction": "Don't appologize. Take in all information. Repeat the behavior to build tolerance.",
@@ -74,9 +74,9 @@
     "happy": {
         "feeling": "Happy",
         "options": "",
-        "message": "Feeling this way is ok!",
-        "bodyLanguage": "Look innocent and proud. Lift your head. Proud chest. Maintain eye contact. Keep your voice tone steady and clear.",
-        "oppositeAction": "Don't appologize. Take in all information. Repeat the behavior to build tolerance.",
-        "breathing": "Normal breathing."
+        "message": "Feeling happy is obviously the goal, so let's keep it this way!",
+        "bodyLanguage": "Look happy!",
+        "oppositeAction": "",
+        "breathing": ""
     }
 }

@@ -5,9 +5,9 @@
     </h1>
     <div id="list">
       <p>{{ solution.message }}</p>
-      <p class="list-item"><b>Body Language</b> - {{ solution.bodyLanguage }}</p>
-      <p class="list-item"><b>Opposite Emotional Action</b> - {{ solution.oppositeAction }}</p>
-      <p class="list-item"><b>Physical Action</b> - {{ solution.breathing }}</p>
+      <p v-if="solution.bodyLanguage !== ''" class="list-item"><b>Body Language</b> - {{ solution.bodyLanguage }}</p>
+      <p v-if="solution.oppositeAction !== ''" class="list-item"><b>Opposite Emotional Action</b> - {{ solution.oppositeAction }}</p>
+      <p v-if="solution.breathing !== ''" class="list-item"><b>Physical Action</b> - {{ solution.breathing }}</p>
     </div>
     <button v-on:click="$emit('back-emit')">Back</button>
   </div>

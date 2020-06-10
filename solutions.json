@@ -12,7 +12,7 @@
         "options": "anger, angry, mad, pissed off, pissed, livid",
         "message": "Feeling this way is ok!",
         "bodyLanguage": "Unclench hands. Relax chest and stomach. Unclench teeth. Relax face, half smile.",
-        "oppositeAction": "Take a time out. Be kind. Be understanding. It's OK to avoid the person or situation that makes you made (if appropriate).",
+        "oppositeAction": "Take a time out. Be kind. Be understanding. It's OK to avoid the person or situation that makes you mad (if appropriate).",
         "breathing": "If you can go for a sprint or similar physical exertion, do it! If you can't, some slow paced breathing can help."
     },
     "envy": {
@@ -20,16 +20,16 @@
         "options": "envy, envious",
         "message": "Feeling this way is ok!",
         "bodyLanguage": "Bright posture. Open your shoulders and relax your arms.",
-        "oppositeAction": "Think of 3 blessings / things you are thankful for.",
-        "breathing": ""
+        "oppositeAction": "Think of 3 blessings / things you are thankful for. Focus on the good in your life rather than the things you don't posess (people, things, feelings, opportunities, etc).",
+        "breathing": "Not necessarily a physical action but if you're able to close your eyes for a moment and really dig deep to find something you're thankful for (in the current, and perhaps relatable to the situation at hand) you'll be able to pull yourself from the moment of envy."
     },
     "jealous": {
         "feeling": "Jealous",
         "options": "jealous, jealousy",
         "message": "Feeling this way is ok!",
         "bodyLanguage": "Bright posture. Open your shoulders and relax your arms.",
-        "oppositeAction": "Let go of controlling others actions. Share the things and people you have in your life. Appreciate the good things that you do have.",
-        "breathing": "Stepping back for a few moments and breathing slowly while clearing your head can help."
+        "oppositeAction": "Let go of controlling other's actions. Share the things and people you have in your life. Appreciate the good things that you do have.",
+        "breathing": "Stepping back for a few moments and breathing deeply while clearing your head can help. If you can close your eyes for a moment and appreciate your own life, rather than dwelling on what you lack that (x) person has, you'll be able to step outside of your jealousy a bit."
     },
     "sad": {
         "feeling": "Sad",

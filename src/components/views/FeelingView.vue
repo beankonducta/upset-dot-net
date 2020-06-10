@@ -1,7 +1,7 @@
 <template>
   <div id="feeling-view">
     <h1 id="header">I'm Feeling:</h1>
-    <input v-model="feeling" />
+    <input v-model="feeling" placeholder="placeholder"/>
     <br />
     <button v-on:click="submit()" :disabled="!feeling || feeling.length === ''" v-bind:class="loading ? 'loading' : ''">
       Submit
@@ -36,7 +36,8 @@ export default {
   },
   data() {
     return {
-      feeling: this.randomFeeling()
+      feeling: '',
+      placeholder: this.randomFeeling()
     };
   }
 };

@@ -4,33 +4,27 @@
         "options": "fear, fearful, scared, intimidated",
         "message": "Feeling this way is ok!",
         "bodyLanguage": "Head and eyes up, shoulders back but relaxed. Assertive.",
-        "oppositeAction": "Do something you know will give you a sense of control & mastery. If you're able to step back for a few moments, do so and remember a situation where you truly felt in control.",
-        "breathing": "Slow, paced breathing."
+        "oppositeAction": "Do something you know will give you a sense of control & mastery. If you're able to step back for a few moments, do so and remember a situation where you truly felt in control."
     },
     "anger": {
         "feeling": "Angry",
         "options": "anger, angry, mad, pissed off, pissed, livid",
         "message": "Feeling this way is ok!",
-        "bodyLanguage": "Unclench hands. Relax chest and stomach. Unclench teeth. Relax face, half smile.",
-        "oppositeAction": "Take a time out. Be kind. Be understanding. It's OK to avoid the person or situation that makes you mad (if appropriate).",
-        "breathing": "If you can go for a sprint or similar physical exertion, do it! If you can't, some slow paced breathing can help."
+        "bodyLanguage": "Unclench hands. Relax chest and stomach. Unclench teeth. Relax face.",
+        "oppositeAction": "Take a time out. Be kind. Be understanding. It's OK to avoid the person or situation that makes you mad (if appropriate). If you can't avoid, enter the situation / conversation with understanding and kindness.",
+        "breathing": "If you can go for a sprint or similar physical exertion, do it!"
     },
     "envy": {
         "feeling": "Envious",
         "options": "envy, envious",
         "message": "Feeling this way is ok!",
-        "bodyLanguage": "Bright posture. Open your shoulders and relax your arms.",
-        "oppositeAction": "Think of 3 blessings / things you are thankful for. Focus on the good in your life rather than the things you don't posess (people, things, feelings, opportunities, etc).",
-        "breathing": "Not necessarily a physical action but if you're able to close your eyes for a moment and really dig deep to find something you're thankful for (in the current, and perhaps relatable to the situation at hand) you'll be able to pull yourself from the moment of envy."
+        "oppositeAction": "Think of something you are thankful for. Focus on the good in your life rather than the things you don't posess (people, things, feelings, opportunities, etc). Realize 'the grass is greener' is usually a myth."
     },
     "jealous": {
         "feeling": "Jealous",
         "options": "jealous, jealousy",
         "message": "Feeling this way is ok!",
-        "bodyLanguage": "Bright posture. Open your shoulders and relax your arms.",
-        "oppositeAction": "Let go of controlling other's actions. Share the things and people you have in your life. Appreciate the good things that you do have.",
-        "breathing": "Stepping back for a few moments and breathing deeply while clearing your head can help. If you can close your eyes for a moment and appreciate your own life, rather than dwelling on what you lack that (x) person has, you'll be able to step outside of your jealousy a bit."
-    },
+        "oppositeAction": "Let go of controlling other's actions. Share the things and people you have in your life. Appreciate and feel proud of the good things that you do have, even if they seem small or unrelated to the situation at hand."    },
     "sad": {
         "feeling": "Sad",
         "options": "sad, sadness, like crying, upset, depressed",
@@ -40,20 +34,20 @@
         "breathing": "'Breathe in' the pleasant events and 'breathe out' the sadness. Don't try to get rid of it, rather allow it to coexist with whatever pleasant thoughts you have."
     },
     "shame": {
-        "feeling": "Shameful",
-        "options": "shame, shameful",
+        "feeling": "",
+        "options": "",
         "message": "Feeling this way is ok!",
-        "bodyLanguage": "Look innocent and proud. Lift your head. Proud chest. Maintain eye contact. Keep your voice tone steady and clear.",
-        "oppositeAction": "Don't appologize. Think of a few things you feel proud about.",
+        "bodyLanguage": "Look innocent and proud. Lift your head. Broaden your shoulders. Take a 'confident stance' by widening your posture all together.",
+        "oppositeAction": "Don't appologize. Think of a few things you feel proud about. Pride is the key here - shame wants you to curl up and submit but combatting it with pride you can stomp it in the face!",
         "breathing": "If you have some time to explore the shame with someone you trust you can, but in the moment the best thing to do is adopt a proud posture and think of moments of pride."
     },
     "guilt": {
-        "feeling": "Guilty",
-        "options": "guilt, guilty",
-        "message": "Feeling this way is ok!",
-        "bodyLanguage": "Look innocent and proud. Lift your head. Proud chest. Maintain eye contact. Keep your voice tone steady and clear.",
-        "oppositeAction": "Don't appologize. Take in all information. Repeat the behavior to build tolerance.",
-        "breathing": "Normal breathing."
+        "feeling": "",
+        "options": "",
+        "message": "",
+        "bodyLanguage": "",
+        "oppositeAction": "",
+        "breathing": ""
     },
     "stress": {
         "feeling": "Stressed",
@@ -64,12 +58,12 @@
         "breathing": "Normal breathing."
     },
     "anxiety": {
-        "feeling": "Anxious",
+        "feeling": "",
         "options": "",
-        "message": "Feeling this way is ok!",
-        "bodyLanguage": "Look innocent and proud. Lift your head. Proud chest. Maintain eye contact. Keep your voice tone steady and clear.",
-        "oppositeAction": "Don't appologize. Take in all information. Repeat the behavior to build tolerance.",
-        "breathing": "Normal breathing."
+        "message": "",
+        "bodyLanguage": "",
+        "oppositeAction": "",
+        "breathing": ""
     },
     "happy": {
         "feeling": "Happy",

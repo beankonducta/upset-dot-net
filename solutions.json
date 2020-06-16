@@ -50,12 +50,12 @@
         "breathing": ""
     },
     "stress": {
-        "feeling": "Stressed",
+        "feeling": "",
         "options": "",
-        "message": "Feeling this way is ok!",
-        "bodyLanguage": "Look innocent and proud. Lift your head. Proud chest. Maintain eye contact. Keep your voice tone steady and clear.",
-        "oppositeAction": "Don't appologize. Take in all information. Repeat the behavior to build tolerance.",
-        "breathing": "Normal breathing."
+        "message": "",
+        "bodyLanguage": "",
+        "oppositeAction": "",
+        "breathing": ""
     },
     "anxiety": {
         "feeling": "",

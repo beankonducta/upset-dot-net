@@ -1,11 +1,10 @@
 <template>
   <div id="feeling-view">
     <h1 id="header">I'm Feeling:</h1>
-    <input v-model="feeling" v-bind:placeholder="placeholder" />
+    <input v-model="feeling" @keydown.enter="submit()" v-bind:placeholder="placeholder" />
     <br />
     <button
       v-on:click="submit()"
-      @keydown.enter="submit()"
       :disabled="!feeling || feeling.length === ''"
       v-bind:class="loading ? 'loading' : ''"
     >Submit</button>

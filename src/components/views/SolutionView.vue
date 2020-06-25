@@ -3,7 +3,7 @@
     <h1 id="header" v-if="solution.feeling">Feeling {{ solution.feeling }}, eh?</h1>
     <div id="list">
       <p>{{ solution.message }}</p>
-      <p v-for="solution in solutions" :key="solution.feeling"></p>
+      <p v-for="solution in solutions" :key="solution.feeling"> {{ solution.feeling }}</p>
       <!-- <p v-if="validSolution(solution.bodyLanguage)" class="list-item"><b>Body Language</b> - {{ solution.bodyLanguage }}</p>
       <p v-if="validSolution(solution.oppositeAction)" class="list-item"><b>Opposite Emotional Action</b> - {{ solution.oppositeAction }}</p>
       <p v-if="validSolution(solution.breathing)" class="list-item"><b>Physical Action</b> - {{ solution.breathing }}</p>-->

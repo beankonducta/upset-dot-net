@@ -1,11 +1,14 @@
 <template>
   <div id="feeling-view">
     <h1 id="header">I'm Feeling:</h1>
-    <input v-model="feeling" v-bind:placeholder="placeholder"/>
+    <input v-model="feeling" v-bind:placeholder="placeholder" />
     <br />
-    <button v-on:click="submit()" :disabled="!feeling || feeling.length === ''" v-bind:class="loading ? 'loading' : ''">
-      Submit
-    </button>
+    <button
+      v-on:click="submit()"
+      @keydown.enter="submit()"
+      :disabled="!feeling || feeling.length === ''"
+      v-bind:class="loading ? 'loading' : ''"
+    >Submit</button>
     <p id="error" v-if="error">{{ error }}</p>
   </div>
 </template>
@@ -18,6 +21,7 @@ export default {
     loading: Boolean
   },
   methods: {
+    // these should pull from api not hardcode
     randomFeeling() {
       const ran = Math.floor(Math.random() * 9) + 1;
       if (ran === 1) return "anger";
@@ -36,7 +40,7 @@ export default {
   },
   data() {
     return {
-      feeling: '',
+      feeling: "",
       placeholder: this.randomFeeling()
     };
   }

@@ -28,7 +28,6 @@ const _ = require("lodash");
 export default {
   name: "App",
   mounted() {
-    this.$ga.page("/");
   },
   components: {
     FeelingView,
@@ -55,13 +54,7 @@ export default {
       return this.view === 2 ? "Back" : "About";
     },
     solutionFromFeeling() {
-      // this isn't submitting an event
-      this.$ga.event({
-        eventCategory: "User Input",
-        eventAction: "Feeling Input",
-        eventLabel: "Solution",
-        eventValue: this.feeling
-      });
+      this.$lyticus.trackClick(this.feeling.toLowerCase());
       this.loading = true;
       axios
         .get(getUrl)

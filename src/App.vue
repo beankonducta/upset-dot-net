@@ -17,10 +17,9 @@ import FeelingView from "./components/views/FeelingView.vue";
 import SolutionView from "./components/views/SolutionView.vue";
 import AboutView from "./components/views/AboutView.vue";
 
-const apiV = 9;
-const getUrl = `https://api.jsonbin.io/b/5ed7ec1c79382f568bd28799/${apiV}`;
+const getUrl = `https://api.jsonbin.io/v3/b/63cb0e3e15ab31599e3b8a69`;
 const axios = require("axios").default;
-const _ = require("lodash");
+// const _ = require("lodash");
 
 // const FEELING_VIEW = 0;
 // const SOLUTION_VIEW = 1;
@@ -59,27 +58,48 @@ export default {
       axios
         .get(getUrl)
         .then(response => {
-          const value = _.toArray(response.data).filter(val => {
-            if (!val.options) {
-              this.loading = false;
-              return val.feeling.toLowerCase() === this.feeling.toLowerCase();
+          const value = response.data.record
+          let w = null
+          value.forEach(val => {
+            if(val.emotion.toLowerCase() === this.feeling.toLowerCase()) {
+              this.loading = false
+              w = val
             }
-            for (let option of val.options.split(", ")) {
-              if (this.feeling.toLowerCase().includes(option.toLowerCase())) {
-                this.loading = false;
-                return true;
+            val.synonyms.forEach(word => {
+              if(word.toLowerCase() === this.feeling.toLowerCase()) {
+                val.emotion = word
+                this.loading = false
+                w = val
               }
-            }
-          });
-          if (value.length > 0) {
-            this.solution = value[0];
-            this.view = 1;
+            })
+          })
+          if(w != null) {
+            this.solution = w;
+            this.view = 1
           } else this.error = "No solution found for that feeling :(";
-        })
-        .catch(() => {
+          
+        //   const value = _.toArray(response.data).filter(val => {
+        //     if (!val.options) {
+        //       this.loading = false;
+        //       return val.emotion.toLowerCase() === this.emotion.toLowerCase();
+        //     }
+        //     for (let option of val.synonyms.split(", ")) {
+        //       if (this.feeling.toLowerCase().includes(option.toLowerCase())) {
+        //         this.loading = false;
+        //         return true;
+        //       }
+        //     }
+        //   });
+        //   if (value.length > 0) {
+        //     this.solution = value[0];
+        //     this.view = 1;
+        //   } else this.error = "No solution found for that feeling :(";
+        // })
+        }).catch((err) => {
+          console.log(err)
           this.error = "Unable to connect to API :(";
-        });
-    }
+        })
+      }
   },
   data() {
     return {

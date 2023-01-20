@@ -1,76 +1,173 @@
-{
-    "fear": {
-        "feeling": "Fearful",
-        "options": "fear, fearful, scared, intimidated",
-        "message": "Feeling this way is ok!",
-        "bodyLanguage": "Head and eyes up, shoulders back but relaxed. Assertive.",
-        "oppositeAction": "Do something you know will give you a sense of control & mastery. If you're able to step back for a few moments, do so and remember a situation where you truly felt in control."
+[
+    {
+        "emotion": "anger",
+        "synonyms": [
+            "fuming",
+            "seething",
+            "simmering",
+            "boiling",
+            "wrath",
+            "ire",
+            "hostility",
+            "outrage",
+            "resentment",
+            "annoyance"
+        ],
+        "oppositeReaction": "relaxation",
+        "practicalTip": "Practice mindfulness by focusing on the physical sensations of anger in the body and labeling the emotion as 'anger'. Try progressive muscle relaxation or deep breathing to help relax the body."
     },
-    "anger": {
-        "feeling": "Angry",
-        "options": "anger, angry, mad, pissed off, pissed, livid",
-        "message": "Feeling this way is ok!",
-        "bodyLanguage": "Unclench hands. Relax chest and stomach. Unclench teeth. Relax face.",
-        "oppositeAction": "Take a time out. Be kind. Be understanding. It's OK to avoid the person or situation that makes you mad (if appropriate). If you can't avoid, enter the situation / conversation with understanding and kindness.",
-        "breathing": "If you can go for a sprint or similar physical exertion, do it!"
+    {
+        "emotion": "anxiety",
+        "synonyms": [
+            "worrying",
+            "nervousness",
+            "fearing",
+            "apprehending",
+            "unease",
+            "distress",
+            "terror",
+            "dread",
+            "fright",
+            "agitation"
+        ],
+        "oppositeReaction": "calmness",
+        "practicalTip": "Practice distress tolerance by engaging in a calming activity such as reading, listening to music, or going for a walk."
     },
-    "envy": {
-        "feeling": "Envious",
-        "options": "envy, envious",
-        "message": "Feeling this way is ok!",
-        "oppositeAction": "Think of something you are thankful for. Focus on the good in your life rather than the things you don't posess (people, things, feelings, opportunities, etc). Realize 'the grass is greener' is usually a myth."
+    {
+        "emotion": "depression",
+        "synonyms": [
+            "despondency",
+            "gloominess",
+            "mourning",
+            "grief",
+            "dejection",
+            "despair",
+            "hopelessness",
+            "languor",
+            "despondence",
+            "melancholy"
+        ],
+        "oppositeReaction": "happiness",
+        "practicalTip": "Practice emotion regulation by identifying and challenging negative thoughts. Try 'pleasure enhancing activities' like going for a walk, calling a friend, or cooking a meal."
     },
-    "jealous": {
-        "feeling": "Jealous",
-        "options": "jealous, jealousy",
-        "message": "Feeling this way is ok!",
-        "oppositeAction": "Let go of controlling other's actions. Share the things and people you have in your life. Appreciate and feel proud of the good things that you do have, even if they seem small or unrelated to the situation at hand."    },
-    "sad": {
-        "feeling": "Sad",
-        "options": "sad, sadness, like crying, upset, depressed",
-        "message": "Feeling this way is ok!",
-        "bodyLanguage": "Adopt a bright posture. Head up, eyes open, shoulders back.",
-        "oppositeAction": "Don't avoid. Be mindful of sadness but also think of pleasant events. Think of a few things you're super thankful to have in your life (people, places, things, anything really).",
-        "breathing": "'Breathe in' the pleasant events and 'breathe out' the sadness. Don't try to get rid of it, rather allow it to coexist with whatever pleasant thoughts you have."
+    {
+        "emotion": "guilt",
+        "synonyms": [
+            "regretting",
+            "remorse",
+            "shame",
+            "chagrin",
+            "compunction",
+            "contrition",
+            "remorsefulness",
+            "self-reproach",
+            "self-condemnation",
+            "penitence"
+        ],
+        "oppositeReaction": "forgiveness",
+        "practicalTip": "Practice mindfulness by focusing on the present moment rather than dwelling on past actions. Try self-validation by acknowledging your feelings and accepting them without judgment."
     },
-    "shame": {
-        "feeling": "",
-        "options": "",
-        "message": "Feeling this way is ok!",
-        "bodyLanguage": "Look innocent and proud. Lift your head. Broaden your shoulders. Take a 'confident stance' by widening your posture all together.",
-        "oppositeAction": "Don't appologize. Think of a few things you feel proud about. Pride is the key here - shame wants you to curl up and submit but combatting it with pride you can stomp it in the face!",
-        "breathing": "If you have some time to explore the shame with someone you trust you can, but in the moment the best thing to do is adopt a proud posture and think of moments of pride."
+    {
+        "emotion": "shame",
+        "synonyms": [
+            "embarrassment",
+            "humiliation",
+            "inadequacy",
+            "discomfort",
+            "disgrace",
+            "mortification",
+            "abashment",
+            "chagrin",
+            "discomfiture",
+            "disconcertion"
+        ],
+        "oppositeReaction": "acceptance",
+        "practicalTip": "Practice mindfulness by focusing on the present moment. Try self-compassion by treating yourself with kindness and understanding."
+   
     },
-    "guilt": {
-        "feeling": "",
-        "options": "",
-        "message": "",
-        "bodyLanguage": "",
-        "oppositeAction": "",
-        "breathing": ""
-    },
-    "stress": {
-        "feeling": "",
-        "options": "",
-        "message": "",
-        "bodyLanguage": "",
-        "oppositeAction": "",
-        "breathing": ""
-    },
-    "anxiety": {
-        "feeling": "",
-        "options": "",
-        "message": "",
-        "bodyLanguage": "",
-        "oppositeAction": "",
-        "breathing": ""
-    },
-    "happy": {
-        "feeling": "Happy",
-        "options": "",
-        "message": "Feeling happy is obviously the goal, so let's keep it this way!",
-        "bodyLanguage": "Look happy!",
-        "oppositeAction": "",
-        "breathing": ""
-    }
-}
+    {
+        "emotion": "loneliness",
+        "synonyms": [
+        "isolation",
+        "alienation",
+        "solitude",
+        "seclusion",
+        "separation",
+        "estrangement",
+        "aloneness",
+        "desolation",
+        "abandonment",
+        "insulation"
+        ],
+        "oppositeReaction": "connectedness",
+        "practicalTip": "Practice interpersonal effectiveness by reaching out to friends or family, joining a group or club, or volunteering. Try the 'DEAR MAN' technique to assertively ask for what you need in relationships."
+        },
+        {
+            "emotion": "fear",
+            "synonyms": [
+                "frighten",
+                "terrify",
+                "dread",
+                "alarm",
+                "concern",
+                "scare",
+                "anxiety",
+                "apprehend",
+                "worry",
+                "startle"
+            ],
+            "oppositeReaction": "courage",
+            "practicalTip": "Practice mindfulness by focusing on the present moment and identifying the source of the fear. Try cognitive restructuring by challenging and reframing negative thoughts. Try exposure therapy by gradually facing the feared situation."
+        },
+        {
+            "emotion": "love",
+            "synonyms": [
+                "adore",
+                "cherish",
+                "treasure",
+                "appreciate",
+                "value",
+                "devotion",
+                "passion",
+                "affection",
+                "tenderness",
+                "warmth"
+            ],
+            "oppositeReaction": "hate",
+            "practicalTip": "Practice mindfulness by focusing on the present moment and savoring the positive feelings associated with love. Try cognitive restructuring by challenging and reframing negative thoughts about love. Try interpersonal effectiveness by expressing love and appreciation to loved ones."
+        },
+        {
+            "emotion": "sadness",
+            "synonyms": [
+                "melancholy",
+                "sorrow",
+                "grief",
+                "heartache",
+                "despondency",
+                "gloom",
+                "unhappiness",
+                "despair",
+                "mourning",
+                "woe"
+            ],
+            "oppositeReaction": "joy",
+            "practicalTip": "Practice mindfulness by focusing on the present moment and accepting the sadness. Try cognitive restructuring by challenging and reframing negative thoughts. Try emotion regulation by engaging in activities that bring joy and pleasure."
+            },
+            {
+            "emotion": "surprise",
+            "synonyms": [
+            "astound",
+            "amaze",
+            "startle",
+            "shock",
+            "dumbfound",
+            "nonplus",
+            "flabbergast",
+            "bewilder",
+            "stupefy",
+            "daze"
+            ],
+            "oppositeReaction": "expectation",
+            "practicalTip": "Practice mindfulness by focusing on the present moment and accepting the surprise. Try cognitive restructuring by challenging and reframing negative thoughts about the surprise. Try problem-solving by identifying the source of the surprise and finding a solution."
+            }    
+        ]

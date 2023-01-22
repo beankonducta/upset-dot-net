@@ -24,6 +24,8 @@ const axios = require("axios").default;
 // const FEELING_VIEW = 0;
 // const SOLUTION_VIEW = 1;
 
+// test
+
 export default {
   name: "App",
   mounted() {

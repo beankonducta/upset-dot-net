@@ -11,6 +11,7 @@
     "autocorrect": "^1.2.0",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "dotenv": "^16.0.3",
     "lodash": "^4.17.15",
     "lyticus": "^1.0.34",
     "openai": "^3.1.0",

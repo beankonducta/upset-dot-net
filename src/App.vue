@@ -18,7 +18,7 @@ import AboutView from "./components/views/AboutView.vue";
 
 import { Configuration, OpenAIApi } from "openai";
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: process.env.OPENAI_API
 });
 const openai = new OpenAIApi(configuration);
 
@@ -58,7 +58,6 @@ export default {
     solutionFromFeeling() {
       this.$lyticus.trackClick(this.feeling.toLowerCase());
       this.loading = true;
-      console.log(this.feeling)
       try {
         openai.createCompletion({
           model: "text-davinci-003",

@@ -4,7 +4,9 @@
     <div id="list">
       <p> <b>Here's a Tip</b> - {{ solution.practicalTip }}</p>
       <!-- <p v-for="solution in solutions" :key="solution.feeling"> {{ solution.feeling }}</p> -->
-      <p v-if="validSolution(solution.oppositeReaction)" class="list-item"><b>Opposite Reaction</b> - {{ solution.oppositeReaction }}</p>
+      <p v-if="validSolution(solution.oppositeReaction)" class="list-item"><b>Opposite Feeling</b> - {{
+        capitalizeFirstLetter(solution.oppositeReaction)
+      }}</p>
     </div>
     <button v-on:click="$emit('back-emit')">Back</button>
   </div>
@@ -23,6 +25,9 @@ export default {
   methods: {
     validSolution(solution) {
       return solution !== null && solution !== "";
+    },
+    capitalizeFirstLetter(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1);
     }
   }
 };
@@ -44,6 +49,5 @@ export default {
   text-align: left;
 }
 
-.list-item {
-}
+.list-item {}
 </style>

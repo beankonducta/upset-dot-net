@@ -1,12 +1,8 @@
 <template>
   <div id="app">
     <button id="about" v-on:click.self="changeView('about')">{{ aboutButtonText() }}</button>
-    <FeelingView
-      v-on:feeling-emit="changeView($event)"
-      v-if="view == 0"
-      v-bind:error="error"
-      v-bind:loading="loading"
-    />
+    <FeelingView v-on:feeling-emit="changeView($event)" v-if="view == 0" v-bind:error="error"
+      v-bind:loading="loading" />
     <SolutionView v-on:back-emit="changeView()" v-if="view == 1" v-bind:solution="solution" />
     <AboutView v-if="view == 2" />
   </div>
@@ -17,8 +13,15 @@ import FeelingView from "./components/views/FeelingView.vue";
 import SolutionView from "./components/views/SolutionView.vue";
 import AboutView from "./components/views/AboutView.vue";
 
-const getUrl = `https://api.jsonbin.io/v3/b/63cb0e3e15ab31599e3b8a69`;
-const axios = require("axios").default;
+// const getUrl = `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`;
+// const axios = require("axios").default;
+
+import { Configuration, OpenAIApi } from "openai";
+const configuration = new Configuration({
+  apiKey: "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",
+});
+const openai = new OpenAIApi(configuration);
+
 // const _ = require("lodash");
 
 // const FEELING_VIEW = 0;
@@ -55,51 +58,98 @@ export default {
     solutionFromFeeling() {
       this.$lyticus.trackClick(this.feeling.toLowerCase());
       this.loading = true;
-      axios
-        .get(getUrl)
-        .then(response => {
-          const value = response.data.record
-          let w = null
-          value.forEach(val => {
-            if(val.emotion.toLowerCase() === this.feeling.toLowerCase()) {
-              this.loading = false
-              w = val
-            }
-            val.synonyms.forEach(word => {
-              if(word.toLowerCase() === this.feeling.toLowerCase()) {
-                val.emotion = word
-                this.loading = false
-                w = val
+      console.log(this.feeling)
+      try {
+        openai.createCompletion({
+          model: "text-davinci-003",
+          prompt: `Is ${this.feeling} an emotion / feeling? Return yes or no, single word only.`
+        }).then(res => {
+          console.log(res.data.choices[0].text)
+          if (res.data.choices[0].text.toLowerCase().includes("no")) {
+            this.error = "That's not a real emotion!"
+            this.loading = false;
+            return;
+          } else {
+            openai.createCompletion({
+              model: "text-davinci-003",
+              prompt: `Is ${this.feeling} positive or negative? Please return a single word.`
+            }).then(res => {
+              console.log(res.data.choices[0].text)
+              if (res.data.choices[0].text.toLowerCase().includes("positive")) {
+                this.solution = { oppositeReaction: "Nothing, just be happy!", practicalTip: "Enjoy the positive vibes!", emotion: this.feeling }
+                this.view = 1
+                this.loading = false;
+                return;
+              } else {
+                openai.createCompletion({
+                  model: "text-davinci-003",
+                  prompt: `Using the following JSON schema, {"oppositeReaction": "",
+        "practicalTip":""}, please return a DBT based response to ${this.feeling}, where the oppositeReaction is a positive, opposite emotion, and the practical tip is a specific couple of sentences to regulate the negative emotion in the moment. Please make sure the response is valid JSON.`,
+                  max_tokens: 1000
+                }).then(res => {
+                  let val = JSON.parse(res.data.choices[0].text);
+                  this.solution = { oppositeReaction: val.oppositeReaction, practicalTip: val.practicalTip }
+                  this.solution.emotion = this.feeling
+                  this.loading = false
+                  this.view = 1
+                })
               }
             })
-          })
-          if(w != null) {
-            this.solution = w;
-            this.view = 1
-          } else this.error = "No solution found for that feeling :(";
-          
-        //   const value = _.toArray(response.data).filter(val => {
-        //     if (!val.options) {
-        //       this.loading = false;
-        //       return val.emotion.toLowerCase() === this.emotion.toLowerCase();
-        //     }
-        //     for (let option of val.synonyms.split(", ")) {
-        //       if (this.feeling.toLowerCase().includes(option.toLowerCase())) {
-        //         this.loading = false;
-        //         return true;
-        //       }
-        //     }
-        //   });
-        //   if (value.length > 0) {
-        //     this.solution = value[0];
-        //     this.view = 1;
-        //   } else this.error = "No solution found for that feeling :(";
-        // })
-        }).catch((err) => {
-          console.log(err)
-          this.error = "Unable to connect to API :(";
+          }
         })
+      } catch (error) {
+        if (error.response) {
+          console.log(error.response.status);
+          console.log(error.response.data);
+        } else {
+          console.log(error.message);
+        }
       }
+      // axios
+      //   .get(getUrl)
+      //   .then(response => {
+      //     const value = response.data.record
+      //     let w = null
+      //     value.forEach(val => {
+      //       if(val.emotion.toLowerCase() === this.feeling.toLowerCase()) {
+      //         this.loading = false
+      //         w = val
+      //       }
+      //       val.synonyms.forEach(word => {
+      //         if(word.toLowerCase() === this.feeling.toLowerCase()) {
+      //           val.emotion = word
+      //           this.loading = false
+      //           w = val
+      //         }
+      //       })
+      //     })
+      //     if(w != null) {
+      //       this.solution = w;
+      //       this.view = 1
+      //     } else this.error = "No solution found for that feeling :(";
+
+      //   const value = _.toArray(response.data).filter(val => {
+      //     if (!val.options) {
+      //       this.loading = false;
+      //       return val.emotion.toLowerCase() === this.emotion.toLowerCase();
+      //     }
+      //     for (let option of val.synonyms.split(", ")) {
+      //       if (this.feeling.toLowerCase().includes(option.toLowerCase())) {
+      //         this.loading = false;
+      //         return true;
+      //       }
+      //     }
+      //   });
+      //   if (value.length > 0) {
+      //     this.solution = value[0];
+      //     this.view = 1;
+      //   } else this.error = "No solution found for that feeling :(";
+      // })
+      // }).catch((err) => {
+      //   console.log(err)
+      //   this.error = "Unable to connect to API :(";
+      // })
+    }
   },
   data() {
     return {
@@ -186,7 +236,7 @@ button:hover {
 }
 
 button:hover:disabled {
-  cursor: default;
+  cursor: not-allowed;
   border-color: #51355a;
   color: #513551;
   background: white;
@@ -202,12 +252,19 @@ button:focus {
 }
 
 button:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .loading {
   -webkit-animation: blink 0.5s infinite;
   animation: blink 0.5s infinite;
+}
+
+.loading:hover {
+  border-color: #51355a;
+  color: #513551;
+  background: white;
+  cursor: not-allowed;
 }
 
 input {
@@ -228,24 +285,29 @@ input:focus {
 
 @-webkit-keyframes blink {
   0% {
-    opacity: 1;
+    opacity: 0.4;
   }
+
   50% {
-    opacity: 0.6;
+    opacity: 0.1;
   }
+
   100% {
-    opacity: 1;
+    opacity: 0.4;
   }
 }
+
 @keyframes blink {
   0% {
-    opacity: 1;
+    opacity: 0.4;
   }
+
   50% {
-    opacity: 0.6;
+    opacity: 0.1;
   }
+
   100% {
-    opacity: 1;
+    opacity: 0.4;
   }
 }
 </style>

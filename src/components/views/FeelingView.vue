@@ -22,16 +22,14 @@ export default {
   methods: {
     // these should pull from api not hardcode
     randomFeeling() {
-      const ran = Math.floor(Math.random() * 9) + 1;
+      const ran = Math.floor(Math.random() * 7) + 1;
       if (ran === 1) return "anger";
       if (ran === 2) return "sad";
       if (ran === 3) return "envy";
       if (ran === 4) return "shame";
       if (ran === 5) return "guilt";
       if (ran === 6) return "jealous";
-      if (ran === 7) return "extremely mad at my friend";
-      if (ran === 8) return "stressed about everything";
-      if (ran === 9) return "happy";
+      if (ran === 7) return "happy";
     },
     submit() {
       this.$emit("feeling-emit", this.feeling);

@@ -22,6 +22,7 @@ require('dotenv').config();
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API
 });
+
 const openai = new OpenAIApi(configuration);
 
 // const _ = require("lodash");
@@ -61,34 +62,34 @@ export default {
       this.$lyticus.trackClick(this.feeling.toLowerCase());
       this.loading = true;
       try {
-        openai.createCompletion({
-          model: "gpt-4",
-          prompt: `Is ${this.feeling} an emotion / feeling? Return yes or no, single word only.`
+        openai.createChatCompletion({
+          model: "gpt-3.5-turbo",
+          messages: [{ role: 'user', content: `Is ${this.feeling} an emotion / feeling? Return yes or no, single word only.` }],
         }).then(res => {
-          console.log(res.data.choices[0].text)
-          if (res.data.choices[0].text.toLowerCase().includes("no")) {
+          console.log(res.data.choices[0].message.content)
+          if (res.data.choices[0].message.content.toLowerCase().includes("no")) {
             this.error = "That's not a real emotion!"
             this.loading = false;
             return;
           } else {
-            openai.createCompletion({
-              model: "gpt-4",
-              prompt: `Is ${this.feeling} positive or negative? Please return a single word.`
-            }).then(res => {
-              console.log(res.data.choices[0].text)
-              if (res.data.choices[0].text.toLowerCase().includes("positive")) {
+            openai.createChatCompletion({
+              model: "gpt-3.5-turbo",
+              messages: [{ role: 'user', content: `Is ${this.feeling} positive or negative? Please return a single word.`, }]
+            }).catch(err => console.log(err)).then(res => {
+              console.log(res.data.choices[0].message.content)
+              if (res.data.choices[0].message.content.toLowerCase().includes("positive")) {
                 this.solution = { oppositeReaction: "Nothing, just be happy!", practicalTip: "Enjoy the positive vibes!", emotion: this.feeling }
                 this.view = 1
                 this.loading = false;
                 return;
               } else {
-                openai.createCompletion({
-                  model: "gpt-4",
-                  prompt: `Using the following JSON schema, {"oppositeReaction": "",
-        "practicalTip":""}, please return a DBT based response to ${this.feeling}, where the oppositeReaction is a positive, opposite emotion, and the practical tip is a specific couple of sentences to regulate the negative emotion in the moment. Please make sure the response is valid JSON.`,
-                  max_tokens: 1000
+                openai.createChatCompletion({
+                  model: "gpt-3.5-turbo",
+                  messages: [{ role: 'user', content:`Using the following JSON schema, {"oppositeReaction": "",
+        "practicalTip":""}, please return a DBT based response to ${this.feeling}, where the oppositeReaction is a positive, opposite emotion, and the practical tip is a specific couple of sentences to regulate the negative emotion in the moment. Please make sure the response is valid JSON.`}],
+                  max_tokens: 1000,
                 }).then(res => {
-                  let val = JSON.parse(res.data.choices[0].text);
+                  let val = JSON.parse(res.data.choices[0].message.content);
                   this.solution = { oppositeReaction: val.oppositeReaction, practicalTip: val.practicalTip }
                   this.solution.emotion = this.feeling
                   this.loading = false

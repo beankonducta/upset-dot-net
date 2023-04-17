@@ -62,7 +62,7 @@ export default {
       this.loading = true;
       try {
         openai.createCompletion({
-          model: "text-davinci-003",
+          model: "gpt-4",
           prompt: `Is ${this.feeling} an emotion / feeling? Return yes or no, single word only.`
         }).then(res => {
           console.log(res.data.choices[0].text)
@@ -72,7 +72,7 @@ export default {
             return;
           } else {
             openai.createCompletion({
-              model: "text-davinci-003",
+              model: "gpt-4",
               prompt: `Is ${this.feeling} positive or negative? Please return a single word.`
             }).then(res => {
               console.log(res.data.choices[0].text)
@@ -83,7 +83,7 @@ export default {
                 return;
               } else {
                 openai.createCompletion({
-                  model: "text-davinci-003",
+                  model: "gpt-4",
                   prompt: `Using the following JSON schema, {"oppositeReaction": "",
         "practicalTip":""}, please return a DBT based response to ${this.feeling}, where the oppositeReaction is a positive, opposite emotion, and the practical tip is a specific couple of sentences to regulate the negative emotion in the moment. Please make sure the response is valid JSON.`,
                   max_tokens: 1000

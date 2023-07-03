@@ -63,7 +63,7 @@ export default {
       try {
         openai.createChatCompletion({
           model: "gpt-3.5-turbo",
-          messages: [{ role: 'user', content: `Is ${this.feeling} an emotion / feeling? Return yes or no, single word only.` }],
+          messages: [{ role: 'user', content: `Is ${this.feeling} an word that could be used to describe how someone is feeling? Return yes or no, single word only.` }],
         }).then(res => {
           console.log(res.data.choices[0].message.content)
           if (res.data.choices[0].message.content.toLowerCase().includes("no")) {
@@ -88,19 +88,27 @@ export default {
         "practicalTip":""}, please return a DBT based response to ${this.feeling}, where the oppositeReaction is a positive, opposite emotion, and the practical tip is a specific couple of sentences to regulate the negative emotion in the moment. Please make sure the response is valid JSON.`}],
                   max_tokens: 1000,
                 }).then(res => {
-                  let val = null;
+                  let val;
                   try {
                     val = JSON.parse(res.data.choices[0].message.content);
                   } catch (error) {
-                    this.error = "Invalid JSON response, please try again."
+                    this.error = "Invalid JSON response. Please try again."
                     this.loading = false;
                     return;
                   }
+                  console.log(val);
                   this.solution = { oppositeReaction: val.oppositeReaction, practicalTip: val.practicalTip }
-                  this.solution.emotion = this.feeling
-                  this.loading = false
+                  openai.createChatCompletion({
+                  model: "gpt-3.5-turbo",
+                  messages: [{ role: 'user', content:`Please return this sentence, "Feeling ${this.feeling}, eh?", in proper grammar, in secord person (as in your), without the quotes.`}],
+                  max_tokens: 1000,
+                }).then(res => {
+                  this.solution.emotion = res.data.choices[0].message.content
                   this.view = 1
-                })
+                  this.loading = false;
+                  return;
+                }).catch(err => console.log(err))
+                }).catch(err => console.log(err))
               }
             })
           }

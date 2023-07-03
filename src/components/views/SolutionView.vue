@@ -1,6 +1,6 @@
 <template>
   <div id="solution-view">
-    <h1 id="header" v-if="solution.emotion">Feeling {{ solution.emotion }}, eh?</h1>
+    <h1 id="header" v-if="solution.emotion">{{ solution.emotion }}</h1>
     <div id="list">
       <p> <b>Here's a Tip</b> - {{ solution.practicalTip }}</p>
       <!-- <p v-for="solution in solutions" :key="solution.feeling"> {{ solution.feeling }}</p> -->

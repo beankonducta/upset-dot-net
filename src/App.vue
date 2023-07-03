@@ -88,7 +88,14 @@ export default {
         "practicalTip":""}, please return a DBT based response to ${this.feeling}, where the oppositeReaction is a positive, opposite emotion, and the practical tip is a specific couple of sentences to regulate the negative emotion in the moment. Please make sure the response is valid JSON.`}],
                   max_tokens: 1000,
                 }).then(res => {
-                  let val = JSON.parse(res.data.choices[0].message.content);
+                  let val = null;
+                  try {
+                    val = JSON.parse(res.data.choices[0].message.content);
+                  } catch (error) {
+                    this.error = "Invalid JSON response, please try again."
+                    this.loading = false;
+                    return;
+                  }
                   this.solution = { oppositeReaction: val.oppositeReaction, practicalTip: val.practicalTip }
                   this.solution.emotion = this.feeling
                   this.loading = false

@@ -17,10 +17,9 @@ import AboutView from "./components/views/AboutView.vue";
 // const axios = require("axios").default;
 
 import { Configuration, OpenAIApi } from "openai";
-require('dotenv').config();
 
 const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API
+  apiKey: process.env.VUE_APP_OPENAI_API
 });
 
 const openai = new OpenAIApi(configuration);
@@ -76,6 +75,7 @@ export default {
               model: "gpt-3.5-turbo",
               messages: [{ role: 'user', content: `Is ${this.feeling} positive or negative? Please return a single word.`, }]
             }).catch(err => console.log(err)).then(res => {
+              // TODO: remove console logs
               console.log(res.data.choices[0].message.content)
               if (res.data.choices[0].message.content.toLowerCase().includes("positive")) {
                 this.solution = { oppositeReaction: "Nothing, just be happy!", practicalTip: "Enjoy the positive vibes!", emotion: this.feeling }

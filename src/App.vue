@@ -75,7 +75,6 @@ export default {
               model: "gpt-3.5-turbo",
               messages: [{ role: 'user', content: `Is ${this.feeling} positive or negative? Please return a single word.`, }]
             }).catch(err => console.log(err)).then(res => {
-              // TODO: remove console logs
               console.log(res.data.choices[0].message.content)
               if (res.data.choices[0].message.content.toLowerCase().includes("positive")) {
                 this.solution = { oppositeReaction: "Nothing, just be happy!", practicalTip: "Enjoy the positive vibes!", emotion: this.feeling }

@@ -6,8 +6,8 @@
       emotional turmoil. It's loosely based on DBT skills for emotion
       regulation. It's meant to be used
       <b>in the moment</b>, as a way to help change your emotional response to a
-      given situation. Each 'solution' gives you a body language adjustment, a
-      breathing exercise, an opposite emotion / reaction tip and a physical
+      given situation. Each 'solution' gives you some tips on how to regulate your
+      emotions in a given situation. It's meant to be a quick read, with a
       change to make (where applicable). It should only take a couple of minutes
       to follow the provided 'solution' and take back some level of control of
       your emotional state. The more you practice these strategies, the easier
